@@ -1,0 +1,10 @@
+<p>
+  all-movies works!
+</p>
+<div *ngFor="let movie of movies">
+  <div>
+    ID: {{ movie.id }}
+    <br/>
+    Name:  <a routerLink="/movie/{{movie.id}}"  (href)="getMovie()">{{ movie.title }}</a>
+  </div>
+</div>
