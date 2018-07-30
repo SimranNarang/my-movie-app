@@ -8,18 +8,27 @@ import { MovieService } from './movie.service';
 import {HttpClientModule} from '@angular/common/http';
 import{ NoopAnimationsModule} from '@angular/platform-browser/animations'
 import { MoviePageComponent } from './movie-page/movie-page.component'
+import { MaterialModule } from './material';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import{ FormsModule } from '@angular/forms';
+import { SaveMovieComponent } from './save-movie/save-movie.component'
+
 @NgModule({
   declarations: [
     AppComponent,
     AllMoviesComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    MovieCardComponent,
+    SaveMovieComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule
-
+    NoopAnimationsModule,
+    MaterialModule,
+    FormsModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

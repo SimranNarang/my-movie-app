@@ -1,10 +1,18 @@
-<p>
-  all-movies works!
-</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Movies</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">favorite</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div *ngFor="let movie of movies">
   <div>
     ID: {{ movie.id }}
-    <br/>
-    Name:  <a routerLink="/movie/{{movie.id}}"  (href)="getMovie()">{{ movie.title }}</a>
+    <br/> Name:
+    <a (click)="getMovie(movie.id)">{{ movie.title }}</a>
   </div>
+  <form (ngSubmit)="deleteMovie(movie.id)">
+    <button>Delete</button>
+  </form>
 </div>
+

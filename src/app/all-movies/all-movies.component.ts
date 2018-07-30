@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-all-movies',
@@ -8,17 +10,21 @@ import { MovieService } from '../movie.service';
 })
 export class AllMoviesComponent implements OnInit {
   public movie;
-  public movies =[];
-  constructor(private allmovies: MovieService) { }
+  public movies;
+  
+  
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit() {
-    this.allmovies.getAllMovie().subscribe(data=> this.movies = data);
+    this.movieService.getAllMovie().subscribe(data=> this.movies = data);
   }
-  getMovie(){
-    
-      this.allmovies.getMovieById().subscribe(
-        data => this.movie = data 
-      );
+  
+  getMovie(id){
+    this.router.navigate(['/movie', id]);
+  }
+
+  deleteMovie(id){
+    this.movieService.deleteUser(id).subscribe();
   }
 
 }

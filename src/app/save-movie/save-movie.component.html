@@ -1,0 +1,31 @@
+<h1>Save Movie!</h1>
+<form (ngSubmit)="onSubmit(saveForm.value)" #saveForm="ngForm">
+  <div class="form-group">
+    <label for="id"> ID </label>
+    <input type="text" class="form-control" id="id" name="id" required ngModel>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="title"> Title </label>
+    <input type="text" class="form-control" name="title" required ngModel>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="poster"> Poster </label>
+    <input type="text" class="form-control" name="poster" id="poster" required>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="imdbId"> ImdbId </label>
+    <input type="text" class="form-control" id="imdbId" name="imdbId" ngModel required>
+  </div>
+  <br>
+
+
+  <div class="form-group">
+    <label for="year"> Year </label>
+    <input type="text" class="form-control" id="year" name="year" ngModel required>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

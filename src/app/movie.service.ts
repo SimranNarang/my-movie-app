@@ -8,14 +8,21 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class MovieService {
-  private _url: string = "http://localhost:8092/movie/api/v1/movies"
+  private _url: string = "http://localhost:8081/api/v1"
   
   constructor(private http: HttpClient, private router : Router) { }
   
-  getAllMovie(): Observable<IMovie[]>{
-    return this.http.get<IMovie[]>(this._url);
+  getAllMovie(): Observable<IMovie>{
+    return this.http.get<IMovie>(this._url+'/movies');
   }
-  getMovieById(): Observable<IMovie>{
-    return this.http.get<IMovie>('http://localhost:8092/movie/api/v1'+this.router.url);
+  getMovieById(id): Observable<IMovie>{
+    return this.http.get<IMovie>(this._url+'/movie/'+id);
+  }
+  saveMovie(movie){
+    return this.http.post<IMovie>(this._url+'/movie',movie);
+  }
+
+  deleteUser(id) {
+    return this.http.delete(this._url + '/movie/' + id);
   }
 }
