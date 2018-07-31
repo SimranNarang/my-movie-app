@@ -11,8 +11,10 @@ import { MoviePageComponent } from './movie-page/movie-page.component'
 import { MaterialModule } from './material';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import{ FormsModule } from '@angular/forms';
-import { SaveMovieComponent } from './save-movie/save-movie.component'
-
+import { SaveMovieComponent } from './save-movie/save-movie.component';
+import { OmdbMoviesComponent } from './omdb-movies/omdb-movies.component'
+import {OmdbService} from './omdb.service';
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { SaveMovieComponent } from './save-movie/save-movie.component'
     MoviePageComponent,
     MovieCardComponent,
     SaveMovieComponent,
+    OmdbMoviesComponent,
+    NavBarComponent,
     
   ],
   imports: [
@@ -30,7 +34,7 @@ import { SaveMovieComponent } from './save-movie/save-movie.component'
     MaterialModule,
     FormsModule
   ],
-  providers: [MovieService],
+  providers: [MovieService,OmdbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

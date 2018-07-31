@@ -1,5 +1,5 @@
 export class IMovie{
-    id: string;
+    id: number;
     title: string;
     year: string;
     imdbId: string;

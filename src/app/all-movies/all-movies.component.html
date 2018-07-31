@@ -1,18 +1,15 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Movies</span>
-    <span class="example-spacer"></span>
-    <mat-icon class="example-icon">favorite</mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
+  
+<br/>
+<mat-grid-list cols="12" rowHeight="100px">
 <div *ngFor="let movie of movies">
-  <div>
-    ID: {{ movie.id }}
-    <br/> Name:
-    <a (click)="getMovie(movie.id)">{{ movie.title }}</a>
-  </div>
-  <form (ngSubmit)="deleteMovie(movie.id)">
-    <button>Delete</button>
-  </form>
+  <mat-grid-tile colspan="4" rowspan="6">
+    <mat-card class="example-card">
+      <app-movie-card [title]="movie.title" [poster]="movie.poster" [year]="movie.year"></app-movie-card>
+      <mat-card-actions>
+        <button mat-button (click)="deleteMovie(movie.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
 </div>
+</mat-grid-list>
 
